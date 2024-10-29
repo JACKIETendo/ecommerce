@@ -25,10 +25,9 @@
             $image = $_FILES['image']['name']?? 'image';
             $image_size = $_FILES['image']['size']?? 0;
             $image_tmp_name = $_FILES['image']['tmp_name']?? 'image';
-            $image_folder = 'images/' .$image;
+            $image_folder = 'img/' .$image;
         }
         
-
         $select_product_name = mysqli_query($conn, "SELECT name FROM `products` WHERE name = '$product_name'") or die ('query failed');
         if(mysqli_num_rows($select_product_name)>0) {
             $message[] = 'Product name already exist';
@@ -108,7 +107,7 @@
 
                 ?>
                 <div class="box">
-                    <img src="images/<?php echo $fetch_products['image']; ?>">
+                    <img style="height: 70%;" src="img/<?php echo $fetch_products['image']; ?>">
                     <p>Price : $<?php echo $fetch_products['price']; ?></p>
                     <h4><?php echo $fetch_products['name']; ?></h4>
                     <details><?php echo $fetch_products['product_detail']; ?></details>
